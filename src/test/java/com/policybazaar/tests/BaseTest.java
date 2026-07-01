@@ -15,11 +15,10 @@ public class BaseTest {
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     @BeforeMethod
-    @Parameters
+    @Parameters("browser")
     public void setUp(String browser) {
 
         WebDriver webDriver=null;
-
         switch (browser){
             case "chrome" -> webDriver = new ChromeDriver();
             case "edge" -> webDriver=new EdgeDriver();
