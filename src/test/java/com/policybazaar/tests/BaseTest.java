@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.time.Duration;
@@ -15,15 +16,14 @@ public class BaseTest {
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     @BeforeMethod
-    @Parameters
-    public void setUp(String browser) {
+    @Parameters("browser")
+    public void setUp(@Optional("chrome") String browser) {
 
-        WebDriver webDriver=null;
-
-        switch (browser){
-            case "chrome" -> webDriver = new ChromeDriver();
-            case "edge" -> webDriver=new EdgeDriver();
-        }
+        WebDriver webDriver = switch (browser.toLowerCase()) {
+            case "chrome" -> new ChromeDriver();
+            case "edge" -> new EdgeDriver();
+            default -> new ChromeDriver();
+        };
 
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -36,8 +36,9 @@ public class BaseTest {
         return driver.get();
     }
 
-    @AfterMethod
+     @AfterMethod
     public void tearDown() {
+
         if (getDriver() != null) {
             getDriver().quit();
             driver.remove();
