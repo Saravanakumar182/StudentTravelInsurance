@@ -3,7 +3,9 @@ package com.policybazaar.tests;
 import com.policybazaar.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -20,8 +22,14 @@ public class BaseTest {
 
         WebDriver webDriver=null;
         switch (browser){
-            case "chrome" -> webDriver = new ChromeDriver();
-            case "edge" -> webDriver=new EdgeDriver();
+            case "chrome" -> {
+//                ChromeOptions options = new ChromeOptions().addArguments("--headless=new");
+                webDriver = new ChromeDriver();
+            }
+            case "edge" -> {
+//                EdgeOptions options = new EdgeOptions().addArguments("--headless");
+                webDriver=new EdgeDriver();
+            }
         }
 
         webDriver.manage().window().maximize();
@@ -37,6 +45,7 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
+
         if (getDriver() != null) {
             getDriver().quit();
             driver.remove();
