@@ -6,7 +6,8 @@
 
     <test name="Travel Insurance Test">
         <classes>
-            <class name="com.policybazaar.tests.TestCase1"/>
+            <class name="com.policybazaar.tests.TC01_ValidatingURL"/>
+            <class name="com.policybazaar.tests.TC02_ValidateTravelDates"/>
         </classes>
     </test>
 

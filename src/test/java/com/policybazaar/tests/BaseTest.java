@@ -4,10 +4,7 @@ import com.policybazaar.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -15,7 +12,7 @@ public class BaseTest {
 
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    @BeforeMethod
+    @BeforeSuite
     @Parameters("browser")
     public void setUp(@Optional("chrome") String browser) {
 
@@ -46,11 +43,11 @@ public class BaseTest {
         return driver.get();
     }
 
-    @AfterMethod
+  @AfterSuite
    public void tearDown() {
-       if (getDriver() != null) {
-           getDriver().quit();
-           driver.remove();
-       }
-    }
+    if (getDriver() != null) {
+         getDriver().quit();
+        driver.remove();
+     }
+   }
 }
