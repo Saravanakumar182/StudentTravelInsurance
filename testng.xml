@@ -4,7 +4,9 @@
     <test name="Chrome Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.policybazaar.tests.TestScenario2"/>
+            <class name="com.policybazaar.tests.TC02_verifyCountrySelection"/>
+            <class name="com.policybazaar.tests.TC04_verifyTravellerSelection"/>
+            <class name="com.policybazaar.tests.TC05_verifyAgeInput"/>
         </classes>
     </test>
 

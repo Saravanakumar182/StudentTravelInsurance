@@ -36,12 +36,12 @@ public class BaseTest {
         return driver.get();
     }
 
-     @AfterMethod
-    public void tearDown() {
-
-        if (getDriver() != null) {
-            getDriver().quit();
-            driver.remove();
-        }
-    }
+//     @AfterMethod
+//    public void tearDown() {
+//
+//        if (getDriver() != null) {
+//            getDriver().quit();
+//            driver.remove();
+//        }
+//    }
 }
