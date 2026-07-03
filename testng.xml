@@ -1,8 +1,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Default Suite">
-    <test name="ICICI Lombard Test">
+<suite name="Insurance policy testing" parallel="tests">
+    <test name="Health Insurance tests chrome">
+        <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.policy.tests.TC01_ValidateURL"/>
+
+        </classes>
+    </test>
+    <test name="Health Insurance tests edge">
+        <parameter name="browser" value="edge"/>
+        <classes>
+
         </classes>
     </test>
 </suite>

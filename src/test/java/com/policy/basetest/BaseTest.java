@@ -12,6 +12,7 @@ import java.time.Duration;
 
 public class BaseTest {
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
     @BeforeMethod
     @Parameters("browser")
     public void setUp(@Optional("chrome") String browser){
