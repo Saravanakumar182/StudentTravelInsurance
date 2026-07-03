@@ -1,6 +1,6 @@
-package com.policybazaar.tests;
+package com.policy.tests;
 
-import com.policybazaar.utils.ConfigReader;
+import com.policy.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -36,12 +36,12 @@ public class BaseTest {
         return driver.get();
     }
 
-//     @AfterMethod
-//    public void tearDown() {
-//
-//        if (getDriver() != null) {
-//            getDriver().quit();
-//            driver.remove();
-//        }
-//    }
+     @AfterMethod
+    public void tearDown() {
+
+        if (getDriver() != null) {
+            getDriver().quit();
+            driver.remove();
+        }
+    }
 }

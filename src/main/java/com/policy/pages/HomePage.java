@@ -1,4 +1,4 @@
-package com.policybazaar.pages;
+package com.policy.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

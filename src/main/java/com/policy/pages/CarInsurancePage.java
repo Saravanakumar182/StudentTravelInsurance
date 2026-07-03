@@ -1,4 +1,4 @@
-package com.policybazaar.pages;
+package com.policy.pages;
 
 public class CarInsurancePage {
 }

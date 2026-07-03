@@ -1,4 +1,4 @@
-package com.policybazaar.utils;
+package com.policy.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
