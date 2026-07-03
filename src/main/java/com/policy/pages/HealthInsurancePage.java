@@ -1,5 +1,6 @@
 package com.policy.pages;
 import java.time.Duration;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,10 +32,14 @@ public class HealthInsurancePage {
     WebElement name;
     @FindBy(xpath = "//button[contains(.,'Get quote')]")
     WebElement getQuoteButton;
-
+    @FindBy(id = "maxprotec-landing-email")
+    WebElement emailField;
+    @FindBy(xpath = "//span[contains(text(),'Please enter a valid Mobile number')]")
+    WebElement mobileErrorMsg;
+    @FindBy(xpath = "//span[contains(text(),'Please enter a valid email id')]")
+    WebElement emailErrorMsg;
     public void clickHealthInsurance() {
-        wait.until(
-                ExpectedConditions.elementToBeClickable(healthInsurance));
+        wait.until(ExpectedConditions.elementToBeClickable(healthInsurance));
         healthInsurance.click();
     }
     public String getCurrentUrl() {
@@ -50,4 +55,23 @@ public class HealthInsurancePage {
                 && name.isDisplayed()
                 && getQuoteButton.isDisplayed();
     }
+    public void triggerMobileNumberValidation() {
+        wait.until(ExpectedConditions.elementToBeClickable(mobileNumber));
+        mobileNumber.click();
+        mobileNumber.sendKeys(Keys.TAB);
+    }
+    public String getMobileErrorMessage() {
+        wait.until(ExpectedConditions.visibilityOf(mobileErrorMsg));
+        return mobileErrorMsg.getText().trim();
+    }
+    public void triggerEmailValidation() {
+        wait.until(ExpectedConditions.elementToBeClickable(email));
+        email.click();
+        email.sendKeys(Keys.TAB);
+    }
+    public String getEmailErrorMessage() {
+        wait.until(ExpectedConditions.visibilityOf(emailErrorMsg));
+        return emailErrorMsg.getText().trim();
+    }
+
 }

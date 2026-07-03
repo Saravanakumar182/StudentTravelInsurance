@@ -3,8 +3,8 @@ import com.policy.basetest.BaseTest;
 import com.policy.pages.HealthInsurancePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-public class TC01_ValidateURL extends BaseTest {
-    @Test
+public class TC16_NavigateToHealthInsurance extends BaseTest {
+    @Test(priority = 1)
     public void validateHealthInsuranceNavigation() {
         HealthInsurancePage healthPage =  new HealthInsurancePage(driver.get());
         healthPage.clickHealthInsurance();
@@ -12,7 +12,7 @@ public class TC01_ValidateURL extends BaseTest {
             driver.get().switchTo().window(tab);
         }
         String actualUrl = healthPage.getCurrentUrl();
-        System.out.println("Actual URL : " + actualUrl);
+        //System.out.println("Actual URL : " + actualUrl);
         Assert.assertTrue(actualUrl.contains("health-insurance"),
                 "Failed to navigate to Health Insurance page");
         Assert.assertTrue(healthPage.isQuoteFormDisplayed(),
