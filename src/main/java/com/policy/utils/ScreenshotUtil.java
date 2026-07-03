@@ -1,4 +1,4 @@
-package com.policybazaar.utils;
+package com.policy.utils;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

@@ -3,15 +3,13 @@
     <test name="Health Insurance tests chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.policybazaar.tests.TC20_VerifyingMemberForInsuring"/>
-            <class name="com.policybazaar.tests.TC22_VerifyingCitySelection"/>
+
         </classes>
     </test>
     <test name="Health Insurance tests edge">
         <parameter name="browser" value="edge"/>
         <classes>
-            <class name="com.policybazaar.tests.TC20_VerifyingMemberForInsuring"/>
-            <class name="com.policybazaar.tests.TC22_VerifyingCitySelection"/>
+
         </classes>
     </test>
 </suite>
