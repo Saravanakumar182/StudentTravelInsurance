@@ -1,6 +1,6 @@
-package com.policybazaar.tests;
+package com.policy.basetest;
 
-import com.policybazaar.utils.ConfigReader;
+import com.policy.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,14 +15,19 @@ public class BaseTest {
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     @BeforeMethod
-    @Parameters
+    @Parameters("browser")
     public void setUp(String browser) {
 
         WebDriver webDriver=null;
-
         switch (browser){
-            case "chrome" -> webDriver = new ChromeDriver();
-            case "edge" -> webDriver=new EdgeDriver();
+            case "chrome" -> {
+//                ChromeOptions options = new ChromeOptions().addArguments("--headless=new");
+                webDriver = new ChromeDriver();
+            }
+            case "edge" -> {
+//                EdgeOptions options = new EdgeOptions().addArguments("--headless");
+                webDriver=new EdgeDriver();
+            }
         }
 
         webDriver.manage().window().maximize();
@@ -38,6 +43,7 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
+
         if (getDriver() != null) {
             getDriver().quit();
             driver.remove();
