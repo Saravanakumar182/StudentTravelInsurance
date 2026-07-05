@@ -255,4 +255,8 @@ public class TravelInsurancePage {
         System.out.println("✅ Navigated to plan page: " + driver.getCurrentUrl());
     }
 
+    // ---------- Getter for Assertion ----------
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
 }

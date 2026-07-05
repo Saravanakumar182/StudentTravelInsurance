@@ -3,17 +3,26 @@
     <test name="Health Insurance tests chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
+            <class name="com.policy.tests.TC01_verifyTravelPageNavigation"/>
+            <class name="com.policy.tests.TC02_verifySchengenCountrySelection"/>
+            <class name="com.policy.tests.TC03_verifyValidTravelDate"/>
+            <class name="com.policy.tests.TC04_verifyContactDetails"/>
+            <class name="com.policy.tests.TC05_verifyAddTravellers"/>
             <class name="com.policy.tests.TC06_ExtractAllCuratedPlans"/>
             <class name="com.policy.tests.TC07_ValidateMedicalCoverPriceUpdate"/>
             <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>
             <class name="com.policy.tests.TC09_ExpandAdditionalBenefits"/>
             <class name="com.policy.tests.TC10_ValidateDiscountAndNavigateHome"/>
-
         </classes>
     </test>
     <test name="Health Insurance tests edge" >
         <parameter name="browser" value="edge"/>
         <classes>
+            <class name="com.policy.tests.TC01_verifyTravelPageNavigation"/>
+            <class name="com.policy.tests.TC02_verifySchengenCountrySelection"/>
+            <class name="com.policy.tests.TC03_verifyValidTravelDate"/>
+            <class name="com.policy.tests.TC04_verifyContactDetails"/>
+            <class name="com.policy.tests.TC05_verifyAddTravellers"/>
             <class name="com.policy.tests.TC06_ExtractAllCuratedPlans"/>
             <class name="com.policy.tests.TC07_ValidateMedicalCoverPriceUpdate"/>
             <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>

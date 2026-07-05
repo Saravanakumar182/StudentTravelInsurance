@@ -1,17 +1,18 @@
 package com.policy.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class HomePage {
-    private WebDriver driver;
-    WebDriverWait wait;
+
+    protected WebDriver driver;
+    protected WebDriverWait wait; // ✅ DECLARED here
 
     @FindBy(xpath = "//a[normalize-space(text())='Travel']")
     private WebElement travelTab;
