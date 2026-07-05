@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TC8_ValidateTop3LowestPlans extends BaseTest {
+public class TC08_ValidateTop3LowestPlans extends BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(TC8_ValidateTop3LowestPlans.class);
+    private static final Logger log = LoggerManager.getLogger(TC08_ValidateTop3LowestPlans.class);
 
     @Test(description = "TC_8 - Display top 3 lowest plans with provider & amount")
     public void validateTop3LowestPlans() {

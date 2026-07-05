@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TC6_ExtractAllCuratedPlans extends BaseTest {
+public class TC06_ExtractAllCuratedPlans extends BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(TC6_ExtractAllCuratedPlans.class);
+    private static final Logger log = LoggerManager.getLogger(TC06_ExtractAllCuratedPlans.class);
 
     @Test(description = "TC_6 - Extract all curated plans into a List<Plan>")
     public void extractAllCuratedPlans() {

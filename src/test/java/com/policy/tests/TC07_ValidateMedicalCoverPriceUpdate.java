@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TC7_ValidateMedicalCoverPriceUpdate extends BaseTest {
+public class TC07_ValidateMedicalCoverPriceUpdate extends BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(TC7_ValidateMedicalCoverPriceUpdate.class);
+    private static final Logger log = LoggerManager.getLogger(TC07_ValidateMedicalCoverPriceUpdate.class);
 
     @Test(description = "TC_7 - Change Medical Cover dropdown updates Total payable")
     public void validateMedicalCoverPriceUpdate() {

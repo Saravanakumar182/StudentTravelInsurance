@@ -3,10 +3,10 @@
     <test name="Health Insurance tests chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.policy.tests.TC6_ExtractAllCuratedPlans"/>
-            <class name="com.policy.tests.TC7_ValidateMedicalCoverPriceUpdate"/>
-            <class name="com.policy.tests.TC8_ValidateTop3LowestPlans"/>
-            <class name="com.policy.tests.TC9_ExpandAdditionalBenefits"/>
+            <class name="com.policy.tests.TC06_ExtractAllCuratedPlans"/>
+            <class name="com.policy.tests.TC07_ValidateMedicalCoverPriceUpdate"/>
+            <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>
+            <class name="com.policy.tests.TC09_ExpandAdditionalBenefits"/>
             <class name="com.policy.tests.TC10_ValidateDiscountAndNavigateHome"/>
 
         </classes>
@@ -14,10 +14,10 @@
     <test name="Health Insurance tests edge" >
         <parameter name="browser" value="edge"/>
         <classes>
-            <class name="com.policy.tests.TC6_ExtractAllCuratedPlans"/>
-            <class name="com.policy.tests.TC7_ValidateMedicalCoverPriceUpdate"/>
-            <class name="com.policy.tests.TC8_ValidateTop3LowestPlans"/>
-            <class name="com.policy.tests.TC9_ExpandAdditionalBenefits"/>
+            <class name="com.policy.tests.TC06_ExtractAllCuratedPlans"/>
+            <class name="com.policy.tests.TC07_ValidateMedicalCoverPriceUpdate"/>
+            <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>
+            <class name="com.policy.tests.TC09_ExpandAdditionalBenefits"/>
             <class name="com.policy.tests.TC10_ValidateDiscountAndNavigateHome"/>
         </classes>
     </test>

@@ -8,9 +8,9 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TC9_ExpandAdditionalBenefits extends BaseTest {
+public class TC09_ExpandAdditionalBenefits extends BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(TC9_ExpandAdditionalBenefits.class);
+    private static final Logger log = LoggerManager.getLogger(TC09_ExpandAdditionalBenefits.class);
 
     @Test(description = "TC_9 - Expand Additional Benefits accordion & extract benefits")
     public void expandAdditionalBenefits() {
