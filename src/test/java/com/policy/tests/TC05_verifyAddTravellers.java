@@ -1,5 +1,6 @@
 package com.policy.tests;
 
+import com.policy.basetest.BaseTest;
 import com.policy.pages.TravelInsurancePage;
 import com.policy.utils.ConfigReader;
 import org.testng.Assert;
@@ -41,6 +42,6 @@ public class TC05_verifyAddTravellers extends BaseTest {
                 travelPage.getCurrentUrl().contains("plan-page"),
                 "Did not navigate to plan page."
         );
-        System.out.println("✅ Successfully landed on plan page.");
+        System.out.println("Successfully landed on plan page.");
     }
 }

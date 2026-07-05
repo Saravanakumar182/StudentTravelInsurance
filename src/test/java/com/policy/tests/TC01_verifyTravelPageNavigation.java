@@ -1,5 +1,6 @@
 package com.policy.tests;
 
+import com.policy.basetest.BaseTest;
 import com.policy.pages.TravelInsurancePage;
 import org.testng.annotations.Test;
 

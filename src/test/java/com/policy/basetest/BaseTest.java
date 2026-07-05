@@ -1,4 +1,4 @@
-package com.policy.tests;
+package com.policy.basetest;
 
 import com.policy.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;

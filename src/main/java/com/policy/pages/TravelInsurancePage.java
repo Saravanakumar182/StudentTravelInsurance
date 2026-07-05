@@ -56,12 +56,15 @@ public class TravelInsurancePage {
     @FindBy(id = "mul-em")
     private WebElement emailField;
 
+    @FindBy(xpath = "//app-view-price//app-traveller-form/div[2]/a")
+    private WebElement continueToPlansButton;
+
     // ================= Helpers =================
     private void switchToNewTab() {
         try {
             ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             if (tabs.size() > 1) {
-                driver.switchTo().window(tabs.get(tabs.size() - 1));
+                driver.switchTo().window(tabs.getLast());
             }
         } catch (Exception ignored) {}
     }
@@ -90,7 +93,7 @@ public class TravelInsurancePage {
 
     public void clickTravelInsurance() {
         wait.until(ExpectedConditions.elementToBeClickable(travelInsuranceOption)).click();
-        switchToNewTab();
+
     }
 
     // ================= Country Actions =================
@@ -134,7 +137,6 @@ public class TravelInsurancePage {
         wait.until(ExpectedConditions.elementToBeClickable(travelStartDateField));
         scrollIntoView(travelStartDateField);
         safeClick(travelStartDateField);
-
         selectDateFromCalendar(startDate);
         selectDateFromCalendar(endDate);
     }
@@ -142,7 +144,6 @@ public class TravelInsurancePage {
     private void selectDateFromCalendar(String dateStr) {
         String day = dateStr.split("-")[0];
         if (day.startsWith("0")) day = day.substring(1);
-
         String dayXpath = "//app-calender//div[normalize-space(text())='" + day + "']";
         WebElement dayCell = wait.until(
                 ExpectedConditions.elementToBeClickable(By.xpath(dayXpath))
@@ -168,10 +169,8 @@ public class TravelInsurancePage {
         wait.until(ExpectedConditions.elementToBeClickable(travelStartDateField));
         scrollIntoView(travelStartDateField);
         safeClick(travelStartDateField);
-
         String day = dateStr.split("-")[0];
         if (day.startsWith("0")) day = day.substring(1);
-
         String dayXpath = "//app-calender//div[normalize-space(text())='" + day + "']";
         try {
             WebElement dayCell = driver.findElement(By.xpath(dayXpath));
@@ -196,10 +195,9 @@ public class TravelInsurancePage {
         wait.until(ExpectedConditions.elementToBeClickable(continueButton));
         scrollIntoView(continueButton);
         safeClick(continueButton);
-
         // Switch driver context into results-page iframe
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id("sfFrontendHtml")));
-        System.out.println("✅ Switched into iframe 'sfFrontendHtml'");
+
     }
 
     // ================= Mobile & Email =================
@@ -238,13 +236,11 @@ public class TravelInsurancePage {
     public void addTravellerByAge(int age) {
         int bandIndex = getBandIndexForAge(age);
         String xpath = "//app-view-price//app-traveller-form/div[1]/div[" + bandIndex + "]/div/div/a[2]";
-
         WebElement addButton = wait.until(
                 ExpectedConditions.elementToBeClickable(By.xpath(xpath))
         );
         scrollIntoView(addButton);
         safeClick(addButton);
-
         System.out.println("✅ Added traveller of age " + age);
     }
 
@@ -257,16 +253,11 @@ public class TravelInsurancePage {
         throw new IllegalArgumentException("Invalid age: " + age);
     }
 
-    // ---------- Locator ----------
-    @FindBy(xpath = "//app-view-price//app-traveller-form/div[2]/a")
-    private WebElement continueToPlansButton;
-
     // ---------- Action ----------
     public void clickContinueToPlans() {
         wait.until(ExpectedConditions.elementToBeClickable(continueToPlansButton));
         scrollIntoView(continueToPlansButton);
         safeClick(continueToPlansButton);
-
         // Wait for navigation to plan page
         wait.until(ExpectedConditions.urlContains("plan-page"));
         System.out.println("✅ Navigated to plan page: " + driver.getCurrentUrl());
