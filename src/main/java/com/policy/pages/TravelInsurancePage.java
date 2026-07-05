@@ -60,14 +60,6 @@ public class TravelInsurancePage {
     private WebElement continueToPlansButton;
 
     // ================= Helpers =================
-    private void switchToNewTab() {
-        try {
-            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-            if (tabs.size() > 1) {
-                driver.switchTo().window(tabs.getLast());
-            }
-        } catch (Exception ignored) {}
-    }
 
     private void scrollIntoView(WebElement element) {
         ((JavascriptExecutor) driver).executeScript(

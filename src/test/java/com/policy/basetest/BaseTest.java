@@ -1,44 +1,107 @@
 package com.policy.basetest;
 
+import com.policy.pages.HomePage;
+import com.policy.pages.TravelInsurancePage;
+import com.policy.pages.TravelInsurancePlanPage;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.LoggerManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class BaseTest {
 
+    private static final Logger log = LoggerManager.getLogger(BaseTest.class);
+
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    
+    protected HomePage homePage;
+    protected TravelInsurancePage travelPage;
+    protected TravelInsurancePlanPage travelPlanPage;
+
+    // ---- Reusable test data ----
+    protected static final String COUNTRY = "Germany";
+    protected static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     @BeforeMethod
     @Parameters("browser")
     public void setUp(@Optional("chrome") String browser) {
 
-        WebDriver webDriver = switch (browser.toLowerCase()) {
-            case "chrome" -> new ChromeDriver();
-            case "edge" -> new EdgeDriver();
-            default -> new ChromeDriver();
-        };
+        WebDriver webDriver = getDriver(browser);
 
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         webDriver.get(ConfigReader.getProperty("app.url"));
 
         driver.set(webDriver);
+
+        // Initialise page objects for this thread
+        homePage= new HomePage(webDriver);
+        travelPage = new TravelInsurancePage(webDriver);
+        travelPlanPage =new TravelInsurancePlanPage(webDriver);
+
+        log.info("Browser [{}] launched | URL = {}",
+                browser, ConfigReader.getProperty("app.url"));
+    }
+
+    private static WebDriver getDriver(String browser) {
+        WebDriver webDriver;
+        switch (browser) {
+            case "chrome" -> {
+//                ChromeOptions options = new ChromeOptions().addArguments("--headless=new");
+                webDriver = new ChromeDriver();
+            }
+            case "edge" -> {
+//                EdgeOptions options = new EdgeOptions().addArguments("--headless");
+                webDriver = new EdgeDriver();
+            }
+            default -> throw new IllegalArgumentException("Unsupported browser: " + browser);
+        }
+        return webDriver;
     }
 
     public WebDriver getDriver() {
         return driver.get();
     }
 
-     @AfterMethod
-    public void tearDown() {
+    protected void navigateToCuratedPlansPage() {
+        String country     = ConfigReader.getProperty("travel.destination.country");
+        String startDate   = ConfigReader.getProperty("travel.start.date");
+        String endDate     = ConfigReader.getProperty("travel.end.date");
+        String mobile     = ConfigReader.getProperty("travel.mobile.number");
+        String email      = ConfigReader.getProperty("travel.user.email");
+        int traveller1Age  = Integer.parseInt(ConfigReader.getProperty("travel.traveller1.age"));
+        int traveller2Age  = Integer.parseInt(ConfigReader.getProperty("travel.traveller2.age"));
 
+        travelPage.clickTravelTab();
+        travelPage.clickTravelInsurance();
+        travelPage.clickCountryButton();
+        travelPage.enterDestinationCountry(country);
+        travelPage.selectCountryFromDropdown(country);
+        travelPage.enterTravelDates(startDate, endDate);
+        travelPage.clickContinue();
+
+        travelPage.enterMobileNumber(mobile);
+        travelPage.enterEmail(email);
+
+        // Add both travellers
+        travelPage.addTravellerByAge(traveller1Age);
+        travelPage.addTravellerByAge(traveller2Age);
+
+        // Continue to plan page
+        travelPage.clickContinueToPlans();
+        log.info("=== Landed on curated-plans page (assumed after form submit) ===");
+    }
+
+
+    @AfterMethod
+    public void tearDown() {
         if (getDriver() != null) {
             getDriver().quit();
             driver.remove();
