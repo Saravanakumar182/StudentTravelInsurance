@@ -3,14 +3,13 @@ package com.policy.basetest;
 import com.policy.pages.HomePage;
 import com.policy.pages.TravelInsurancePage;
 import com.policy.pages.TravelInsurancePlanPage;
+import com.policy.pages.HealthInsurancePage;
 import com.policy.utils.ConfigReader;
 import com.policy.utils.LoggerManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.*;
-
 import org.testng.annotations.*;
 import java.time.Duration;
 import java.time.format.DateTimeFormatter;
@@ -20,10 +19,10 @@ public class BaseTest {
     private static final Logger log = LoggerManager.getLogger(BaseTest.class);
 
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-
     protected HomePage homePage;
     protected TravelInsurancePage travelPage;
     protected TravelInsurancePlanPage travelPlanPage;
+    protected HealthInsurancePage healthInsurancePage;
 
     protected static final String COUNTRY = "Germany";
     protected static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -31,9 +30,7 @@ public class BaseTest {
     @BeforeMethod
     @Parameters("browser")
     public void setUp(@Optional("chrome") String browser) {
-
         WebDriver webDriver = getDriver(browser);
-
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         webDriver.get(ConfigReader.getProperty("app.url"));
@@ -43,6 +40,7 @@ public class BaseTest {
         homePage= new HomePage(webDriver);
         travelPage = new TravelInsurancePage(webDriver);
         travelPlanPage =new TravelInsurancePlanPage(webDriver);
+        healthInsurancePage = new HealthInsurancePage(webDriver);
 
         log.info("Browser [{}] launched | URL = {}",
                 browser, ConfigReader.getProperty("app.url"));
@@ -57,13 +55,12 @@ public class BaseTest {
             }
             case "edge" -> {
 //                EdgeOptions options = new EdgeOptions().addArguments("--headless");
-                webDriver=new EdgeDriver();
+                webDriver = new EdgeDriver();
             }
             default -> throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
         return webDriver;
     }
-
     public WebDriver getDriver() {
         return driver.get();
     }
@@ -100,8 +97,8 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        if (getDriver() != null) {
-            getDriver().quit();
+       if (getDriver() != null) {
+           getDriver().quit();
             driver.remove();
         }
     }
