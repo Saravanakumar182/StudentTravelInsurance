@@ -1,4 +1,8 @@
 package com.policy.basetest;
+import com.policy.pages.HealthInsurancePage;
+import com.policy.pages.HomePage;
+import com.policy.pages.TravelInsurancePage;
+//import com.policy.pages.TravelInsurancePlanPage;
 import com.policy.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,11 +11,17 @@ import org.testng.annotations.*;
 import java.time.Duration;
 
 public class BaseTest {
+
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    @BeforeTest
+    protected HomePage homePage;
+    protected TravelInsurancePage travelPage;
+    //protected TravelInsurancePlanPage travelPlanPage;
+    protected HealthInsurancePage healthInsurancePage;
+
+    @BeforeMethod
     @Parameters("browser")
-    public void setUp(@Optional("chrome") String browser){
-        WebDriver webDriver=null;
+    public void setUp(@Optional("chrome") String browser) {
+        WebDriver webDriver = null;
         switch (browser) {
             case "chrome" -> {
 //                ChromeOptions options = new ChromeOptions().addArguments("--headless=new");
@@ -26,14 +36,20 @@ public class BaseTest {
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         webDriver.get(ConfigReader.getProperty("app.url"));
         driver.set(webDriver);
+
+        // Initialize page objects
+        homePage = new HomePage(webDriver);
+        travelPage = new TravelInsurancePage(webDriver);
+      //  travelPlanPage = new TravelInsurancePlanPage(webDriver);
+        healthInsurancePage = new HealthInsurancePage(webDriver);
     }
     public WebDriver getDriver() {
         return driver.get();
     }
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
-       if (getDriver() != null) {
-           getDriver().quit();
+        if (getDriver() != null) {
+            getDriver().quit();
             driver.remove();
         }
     }
