@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 
 public class TC01_VerifyTravelPageNavigation extends BaseTest {
 
-    @Test(description = "Verify navigation to Travel Insurance page from Home")
+    @Test(description = "TC01 - Verify navigation to Travel Insurance page from Home")
     public void verifyTravelPageNavigation() {
+        LoggerManager.logTestStart(this.getClass(), "TC01 - Verify navigation to Travel Insurance page from Home");
         TravelInsurancePage travelPage = new TravelInsurancePage(getDriver());
         travelPage.clickTravelTab();
         travelPage.clickTravelInsurance();
-
-        System.out.println("Travel Page Navigation validated successfully");
+        log.info("Travel Page Navigation validated successfully");
     }
 }
