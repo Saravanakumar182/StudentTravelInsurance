@@ -3,7 +3,7 @@
     <listeners>
         <listener class-name="com.policy.listeners.ExtentTestListener"/>
     </listeners>
-    <test name="Health Insurance tests chrome">
+    <test name="Chrome testcases">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.policy.tests.TC01_VerifyTravelPageNavigation"/>
@@ -16,9 +16,14 @@
             <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>
             <class name="com.policy.tests.TC09_ExpandAdditionalBenefits"/>
             <class name="com.policy.tests.TC10_ValidateDiscountAndNavigateHome"/>
+            <class name="com.policy.tests.TC17_NavigateToHealthInsurance"/>
+            <class name="com.policy.tests.TC18_ValidateInvalidPincodeWarning"/>
+            <class name="com.policy.tests.TC19_ValidateInvalidMobileAndEmailWarnings"/>
+            <class name="com.policy.tests.TC20_ValidateMandatoryFieldTests"/>
+            <class name="com.policy.tests.TC21_ValidateSuccessfulFormSubmission"/>
         </classes>
     </test>
-    <test name="Health Insurance tests edge" >
+    <test name="Edge testcases" >
         <parameter name="browser" value="edge"/>
         <classes>
             <class name="com.policy.tests.TC01_VerifyTravelPageNavigation"/>
@@ -31,6 +36,11 @@
             <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>
             <class name="com.policy.tests.TC09_ExpandAdditionalBenefits"/>
             <class name="com.policy.tests.TC10_ValidateDiscountAndNavigateHome"/>
+            <class name="com.policy.tests.TC17_NavigateToHealthInsurance"/>
+            <class name="com.policy.tests.TC18_ValidateInvalidPincodeWarning"/>
+            <class name="com.policy.tests.TC19_ValidateInvalidMobileAndEmailWarnings"/>
+            <class name="com.policy.tests.TC20_ValidateMandatoryFieldTests"/>
+            <class name="com.policy.tests.TC21_ValidateSuccessfulFormSubmission"/>
         </classes>
     </test>
 </suite>

@@ -11,8 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.*;
 
+import org.testng.annotations.*;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class BaseTest {
@@ -20,12 +20,11 @@ public class BaseTest {
     private static final Logger log = LoggerManager.getLogger(BaseTest.class);
 
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    
+
     protected HomePage homePage;
     protected TravelInsurancePage travelPage;
     protected TravelInsurancePlanPage travelPlanPage;
 
-    // ---- Reusable test data ----
     protected static final String COUNTRY = "Germany";
     protected static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -41,7 +40,6 @@ public class BaseTest {
 
         driver.set(webDriver);
 
-        // Initialise page objects for this thread
         homePage= new HomePage(webDriver);
         travelPage = new TravelInsurancePage(webDriver);
         travelPlanPage =new TravelInsurancePlanPage(webDriver);
@@ -59,7 +57,7 @@ public class BaseTest {
             }
             case "edge" -> {
 //                EdgeOptions options = new EdgeOptions().addArguments("--headless");
-                webDriver = new EdgeDriver();
+                webDriver=new EdgeDriver();
             }
             default -> throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
