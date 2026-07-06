@@ -1,6 +1,5 @@
 package com.policy.utils;
 
-import com.aventstack.extentreports.Status;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,8 +22,6 @@ public final class LoggerManager {
     public static Logger getLogger(String name) {
         return LOGGER_CACHE.computeIfAbsent(name, LogManager::getLogger);
     }
-
-    // ---------- Convenience wrapper methods ----------
 
     public static void info(Class<?> clazz, String message) {
         getLogger(clazz).info(message);
@@ -49,8 +46,6 @@ public final class LoggerManager {
     public static void fatal(Class<?> clazz, String message, Throwable throwable) {
         getLogger(clazz).fatal(message, throwable);
     }
-
-    // ---------- Framework-specific helpers ----------
 
     public static void logTestStart(Class<?> clazz, String testName) {
         Logger logger = getLogger(clazz);

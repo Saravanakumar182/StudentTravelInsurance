@@ -16,6 +16,12 @@
             <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>
             <class name="com.policy.tests.TC09_ExpandAdditionalBenefits"/>
             <class name="com.policy.tests.TC10_ValidateDiscountAndNavigateHome"/>
+            <class name="com.policy.tests.TC11_MotorInsuranceNavTest"/>
+            <class name="com.policy.tests.TC12_CarInsuranceDropdownTest"/>
+            <class name="com.policy.tests.TC13_VehicleNumberTest"/>
+            <class name="com.policy.tests.TC14_MobileNumberTest"/>
+            <class name="com.policy.tests.TC15_EmailTest"/>
+            <class name="com.policy.tests.TC16_GetQuoteButtonTest"/>
             <class name="com.policy.tests.TC17_NavigateToHealthInsurance"/>
             <class name="com.policy.tests.TC18_ValidateInvalidPincodeWarning"/>
             <class name="com.policy.tests.TC19_ValidateInvalidMobileAndEmailWarnings"/>
@@ -36,6 +42,12 @@
             <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>
             <class name="com.policy.tests.TC09_ExpandAdditionalBenefits"/>
             <class name="com.policy.tests.TC10_ValidateDiscountAndNavigateHome"/>
+            <class name="com.policy.tests.TC11_MotorInsuranceNavTest"/>
+            <class name="com.policy.tests.TC12_CarInsuranceDropdownTest"/>
+            <class name="com.policy.tests.TC13_VehicleNumberTest"/>
+            <class name="com.policy.tests.TC14_MobileNumberTest"/>
+            <class name="com.policy.tests.TC15_EmailTest"/>
+            <class name="com.policy.tests.TC16_GetQuoteButtonTest"/>
             <class name="com.policy.tests.TC17_NavigateToHealthInsurance"/>
             <class name="com.policy.tests.TC18_ValidateInvalidPincodeWarning"/>
             <class name="com.policy.tests.TC19_ValidateInvalidMobileAndEmailWarnings"/>

@@ -1,11 +1,8 @@
 package com.policy.basetest;
 
-import com.policy.pages.HomePage;
-import com.policy.pages.TravelInsurancePage;
-import com.policy.pages.TravelInsurancePlanPage;
-import com.policy.pages.HealthInsurancePage;
+import com.policy.pages.*;
 import com.policy.utils.ConfigReader;
-import com.policy.utils.LoggerManager;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,13 +13,14 @@ import java.time.format.DateTimeFormatter;
 
 public class BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(BaseTest.class);
+    private static final Logger log = LogManager.getLogger(BaseTest.class);
 
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     protected HomePage homePage;
     protected TravelInsurancePage travelPage;
     protected TravelInsurancePlanPage travelPlanPage;
     protected HealthInsurancePage healthInsurancePage;
+    protected CarInsurancePage carInsurancePage;
 
     protected static final String COUNTRY = "Germany";
     protected static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -41,6 +39,7 @@ public class BaseTest {
         travelPage = new TravelInsurancePage(webDriver);
         travelPlanPage =new TravelInsurancePlanPage(webDriver);
         healthInsurancePage = new HealthInsurancePage(webDriver);
+        carInsurancePage = new CarInsurancePage(webDriver);
 
         log.info("Browser [{}] launched | URL = {}",
                 browser, ConfigReader.getProperty("app.url"));
@@ -97,9 +96,11 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-       if (getDriver() != null) {
-           getDriver().quit();
+        if (getDriver() != null) {
+            log.info("Closing browser session...");
+            getDriver().quit();
             driver.remove();
+            log.info("Browser closed and driver removed from ThreadLocal.");
         }
     }
 }
