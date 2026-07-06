@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -24,10 +23,11 @@ public class TravelInsurancePlanPage {
 
     public TravelInsurancePlanPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait      = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
     }
 
+    // ---------- Locators ----------
     @FindBy(className = "travel-plan-title")
     private WebElement curatedHeader;
 
@@ -61,7 +61,7 @@ public class TravelInsurancePlanPage {
     @FindBy(xpath = "//a[@href='/']")
     private WebElement homeLogo;
 
-    // Helpers
+    // ---------- Helpers ----------
     private void scrollIntoView(WebElement el) {
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollIntoView({block:'center'});", el);
@@ -81,7 +81,29 @@ public class TravelInsurancePlanPage {
         return digits.isEmpty() ? 0 : Integer.parseInt(digits);
     }
 
-    // Actions & getters
+    /**
+     * Wait until the price element becomes stable (its text stops changing).
+     * Used after triggering a dropdown change or carousel scroll where the
+     * DOM re-renders.
+     */
+    private void waitForPriceToStabilize(WebElement priceElement, String previousValue) {
+        try {
+            wait.until(driver -> {
+                try {
+                    String current = priceElement.getText().trim();
+                    return current != null
+                            && !current.isEmpty()
+                            && !current.equals(previousValue);
+                } catch (Exception ignored) {
+                    return false;
+                }
+            });
+        } catch (Exception ignored) {
+            // Fall through — value may not have changed (that's still valid signal)
+        }
+    }
+
+    // ---------- Actions ----------
     public boolean isOnCuratedPlansPage() {
         try {
             wait.until(ExpectedConditions.visibilityOf(curatedHeader));
@@ -96,26 +118,46 @@ public class TravelInsurancePlanPage {
         int safety = 10;
 
         while (safety-- > 0) {
+            int planCountBefore = plans.size();
+
             for (WebElement tile : planTiles) {
                 try {
-                    String name    = tile.findElement(By.xpath(".//h4")).getText().trim();
-                    String tagline = tile.findElement(By.xpath(".//p")).getText().trim();
+                    String name     = tile.findElement(By.xpath(".//h4")).getText().trim();
+                    String tagline  = tile.findElement(By.xpath(".//p")).getText().trim();
                     String priceStr = tile.findElement(By.xpath(".//span[contains(@class,'premium-amnt')]")).getText().trim();
-                    String cover   = tile.findElement(By.xpath(".//input[contains(@id,'jobsummery-alldate')]")).getText().trim();
+                    String cover    = tile.findElement(By.xpath(".//input[contains(@id,'jobsummery-alldate')]")).getText().trim();
 
                     Plan p = new Plan(name, tagline, parsePrice(priceStr), cover);
                     if (plans.stream().noneMatch(x -> x.getName().equalsIgnoreCase(name))) {
                         plans.add(p);
                     }
-                } catch (Exception ignored) {}
+                } catch (Exception ignored) {
+                    // Skip tiles missing expected child elements
+                }
             }
 
+            // Try to advance the carousel; break if not possible
             try {
-                if (carouselNextArrow != null && carouselNextArrow.isDisplayed()
+                if (carouselNextArrow != null
+                        && carouselNextArrow.isDisplayed()
                         && carouselNextArrow.isEnabled()) {
+
                     scrollIntoView(carouselNextArrow);
                     safeClick(carouselNextArrow);
-                    Thread.sleep(800);
+
+                    final int previousCount = planCountBefore;
+                    wait.until(d -> {
+                        try {
+                            int currentTileCount = planTiles.size();
+                            // Wait for either new tile OR arrow disabled state
+                            boolean moreTilesRendered = currentTileCount > previousCount;
+                            boolean arrowGone = !carouselNextArrow.isEnabled()
+                                    || !carouselNextArrow.isDisplayed();
+                            return moreTilesRendered || arrowGone;
+                        } catch (Exception e) {
+                            return true;
+                        }
+                    });
                 } else {
                     break;
                 }
@@ -134,12 +176,19 @@ public class TravelInsurancePlanPage {
     public void changeMedicalCover(String value) {
         wait.until(ExpectedConditions.elementToBeClickable(medicalCoverDropdown));
         scrollIntoView(medicalCoverDropdown);
-        String tag = medicalCoverDropdown.getTagName();
+
+        // Snapshot current payable value so we can wait for it to change
+        String previousPayable = "";
+        try {
+            previousPayable = totalPayable.getText().trim();
+        } catch (Exception ignored) {}
 
         safeClick(medicalCoverDropdown);
+
         By optionLocator = By.xpath("//span[normalize-space(text())='" + value + "']");
         wait.until(ExpectedConditions.elementToBeClickable(optionLocator)).click();
 
+        waitForPriceToStabilize(totalPayable, previousPayable);
     }
 
     public List<Plan> getTopNLowestPlans(List<Plan> allPlans, int n) {
@@ -154,13 +203,22 @@ public class TravelInsurancePlanPage {
         wait.until(ExpectedConditions.elementToBeClickable(additionalBenefitsHeader));
         scrollIntoView(additionalBenefitsHeader);
         safeClick(additionalBenefitsHeader);
+
+        try {
+            wait.until(d -> !additionalBenefitItems.isEmpty()
+                    && additionalBenefitItems.get(0).isDisplayed());
+        } catch (Exception ignored) {}
     }
 
     public List<String> extractAdditionalBenefits() {
         List<String> benefits = new ArrayList<>();
         for (WebElement item : additionalBenefitItems) {
-            String txt = item.findElement(By.xpath("./div/div/h5")).getText().trim();
-            if (!txt.isEmpty()) benefits.add(txt);
+            try {
+                String txt = item.findElement(By.xpath("./div/div/h5")).getText().trim();
+                if (!txt.isEmpty()) benefits.add(txt);
+            } catch (Exception ignored) {
+                // Skip malformed cards
+            }
         }
         return benefits;
     }
