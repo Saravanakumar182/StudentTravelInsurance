@@ -6,7 +6,7 @@ import com.policy.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC04_verifyContactDetails extends BaseTest {
+public class TC04_VerifyContactDetails extends BaseTest {
 
     @Test(description = "Validate mobile number and email entry with format validation")
     public void verifyContactDetails() {

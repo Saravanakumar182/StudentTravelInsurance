@@ -6,7 +6,7 @@ import com.policy.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC03_verifyValidTravelDate extends BaseTest {
+public class TC03_VerifyValidTravelDate extends BaseTest {
 
     @Test(description = "Validate date-picker accepts valid dates and rejects past dates")
     public void verifyValidTravelDate() {

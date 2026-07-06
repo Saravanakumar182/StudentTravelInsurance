@@ -6,7 +6,7 @@ import com.policy.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC05_verifyAddTravellers extends BaseTest {
+public class TC05_VerifyAddTravellers extends BaseTest {
 
     @Test(description = "Add 2 travellers and navigate to plan page")
     public void verifyAddTravellers() {

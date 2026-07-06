@@ -4,7 +4,7 @@ import com.policy.basetest.BaseTest;
 import com.policy.pages.TravelInsurancePage;
 import org.testng.annotations.Test;
 
-public class TC01_verifyTravelPageNavigation extends BaseTest {
+public class TC01_VerifyTravelPageNavigation extends BaseTest {
 
     @Test(description = "Verify navigation to Travel Insurance page from Home")
     public void verifyTravelPageNavigation() {

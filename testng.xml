@@ -6,11 +6,11 @@
     <test name="Health Insurance tests chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.policy.tests.TC01_verifyTravelPageNavigation"/>
-            <class name="com.policy.tests.TC02_verifySchengenCountrySelection"/>
-            <class name="com.policy.tests.TC03_verifyValidTravelDate"/>
-            <class name="com.policy.tests.TC04_verifyContactDetails"/>
-            <class name="com.policy.tests.TC05_verifyAddTravellers"/>
+            <class name="com.policy.tests.TC01_VerifyTravelPageNavigation"/>
+            <class name="com.policy.tests.TC02_VerifySchengenCountrySelection"/>
+            <class name="com.policy.tests.TC03_VerifyValidTravelDate"/>
+            <class name="com.policy.tests.TC04_VerifyContactDetails"/>
+            <class name="com.policy.tests.TC05_VerifyAddTravellers"/>
             <class name="com.policy.tests.TC06_ExtractAllCuratedPlans"/>
             <class name="com.policy.tests.TC07_ValidateMedicalCoverPriceUpdate"/>
             <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>
@@ -21,11 +21,11 @@
     <test name="Health Insurance tests edge" >
         <parameter name="browser" value="edge"/>
         <classes>
-            <class name="com.policy.tests.TC01_verifyTravelPageNavigation"/>
-            <class name="com.policy.tests.TC02_verifySchengenCountrySelection"/>
-            <class name="com.policy.tests.TC03_verifyValidTravelDate"/>
-            <class name="com.policy.tests.TC04_verifyContactDetails"/>
-            <class name="com.policy.tests.TC05_verifyAddTravellers"/>
+            <class name="com.policy.tests.TC01_VerifyTravelPageNavigation"/>
+            <class name="com.policy.tests.TC02_VerifySchengenCountrySelection"/>
+            <class name="com.policy.tests.TC03_VerifyValidTravelDate"/>
+            <class name="com.policy.tests.TC04_VerifyContactDetails"/>
+            <class name="com.policy.tests.TC05_VerifyAddTravellers"/>
             <class name="com.policy.tests.TC06_ExtractAllCuratedPlans"/>
             <class name="com.policy.tests.TC07_ValidateMedicalCoverPriceUpdate"/>
             <class name="com.policy.tests.TC08_ValidateTop3LowestPlans"/>

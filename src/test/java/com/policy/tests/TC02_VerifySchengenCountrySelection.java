@@ -6,7 +6,7 @@ import com.policy.utils.ConfigReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC02_verifySchengenCountrySelection extends BaseTest {
+public class TC02_VerifySchengenCountrySelection extends BaseTest {
 
     @Test(description = "Validate destination dropdown handles valid and invalid countries")
     public void verifySchengenCountrySelection() {
