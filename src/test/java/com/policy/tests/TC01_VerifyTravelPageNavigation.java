@@ -2,9 +2,13 @@ package com.policy.tests;
 
 import com.policy.basetest.BaseTest;
 import com.policy.pages.TravelInsurancePage;
+import com.policy.utils.LoggerManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class TC01_VerifyTravelPageNavigation extends BaseTest {
+
+    private static final Logger log = LoggerManager.getLogger(TC01_VerifyTravelPageNavigation.class);
 
     @Test(description = "TC01 - Verify navigation to Travel Insurance page from Home")
     public void verifyTravelPageNavigation() {

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class TC03_VerifyValidTravelDate extends BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(TC03_verifyValidTravelDate.class);
+    private static final Logger log = LoggerManager.getLogger(TC03_VerifyValidTravelDate.class);
 
     @Test(description = "TC03 - Validate date-picker accepts valid dates and rejects past dates")
     public void verifyValidTravelDate() {

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class TC02_VerifySchengenCountrySelection extends BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(TC02_verifySchengenCountrySelection.class);
+    private static final Logger log = LoggerManager.getLogger(TC02_VerifySchengenCountrySelection.class);
 
     @Test(description = "TC02 - Validate destination dropdown handles valid and invalid countries")
     public void verifySchengenCountrySelection() {

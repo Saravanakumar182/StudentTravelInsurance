@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class TC04_VerifyContactDetails extends BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(TC04_verifyContactDetails.class);
+    private static final Logger log = LoggerManager.getLogger(TC04_VerifyContactDetails.class);
 
     @Test(description = "TC04 - Validate mobile number and email entry with format validation")
     public void verifyContactDetails() {

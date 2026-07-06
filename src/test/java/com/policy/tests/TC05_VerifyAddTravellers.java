@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class TC05_VerifyAddTravellers extends BaseTest {
 
-    private static final Logger log = LoggerManager.getLogger(TC05_verifyAddTravellers.class);
+    private static final Logger log = LoggerManager.getLogger(TC05_VerifyAddTravellers.class);
 
     @Test(description = "TC05 - Add 2 travellers and navigate to plan page")
     public void verifyAddTravellers() {
