@@ -13,10 +13,10 @@ public class TC05_verifyAddTravellers extends BaseTest {
         String country     = ConfigReader.getProperty("travel.destination.country");
         String startDate   = ConfigReader.getProperty("travel.start.date");
         String endDate     = ConfigReader.getProperty("travel.end.date");
-        String mobile     = ConfigReader.getProperty("mobile.number");
-        String email      = ConfigReader.getProperty("user.email");
-        int traveller1Age  = Integer.parseInt(ConfigReader.getProperty("traveller1.age"));
-        int traveller2Age  = Integer.parseInt(ConfigReader.getProperty("traveller2.age"));
+        String mobile     = ConfigReader.getProperty("travel.mobile.number");
+        String email      = ConfigReader.getProperty("travel.user.email");
+        int traveller1Age  = Integer.parseInt(ConfigReader.getProperty("travel.traveller1.age"));
+        int traveller2Age  = Integer.parseInt(ConfigReader.getProperty("travel.traveller2.age"));
 
         TravelInsurancePage travelPage = new TravelInsurancePage(getDriver());
         travelPage.clickTravelTab();
