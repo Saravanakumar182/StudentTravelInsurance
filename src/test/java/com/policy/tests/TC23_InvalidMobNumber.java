@@ -1,4 +1,5 @@
-package com.policy.basetest;
+package com.policy.tests;
+import com.policy.basetest.BaseTest;
 import com.policy.pages.BikeInsurancePage;
 import com.policy.utils.ConfigReader;
 import org.testng.Assert;

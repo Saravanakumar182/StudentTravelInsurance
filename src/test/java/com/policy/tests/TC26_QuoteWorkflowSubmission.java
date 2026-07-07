@@ -1,5 +1,6 @@
-package com.policy.basetest;
+package com.policy.tests;
 
+import com.policy.basetest.BaseTest;
 import com.policy.pages.BikeInsurancePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;

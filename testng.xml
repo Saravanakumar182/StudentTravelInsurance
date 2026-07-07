@@ -27,11 +27,11 @@
             <class name="com.policy.tests.TC19_ValidateInvalidMobileAndEmailWarnings"/>
             <class name="com.policy.tests.TC20_ValidateMandatoryFieldTests"/>
             <class name="com.policy.tests.TC21_ValidateSuccessfulFormSubmission"/>
-            <class name="com.policy.basetest.TC22_navigateToBikeTab"/>
-            <class name="com.policy.basetest.TC23_InvalidMobNumber"/>
-            <class name="com.policy.basetest.TC24_TermsAndConditionsValidation"/>
-            <class name="com.policy.basetest.TC25_Validquotesubmission"/>
-            <class name="com.policy.basetest.TC26_QuoteWorkflowSubmission"/>
+            <class name="com.policy.tests.TC22_navigateToBikeTab"/>
+            <class name="com.policy.tests.TC23_InvalidMobNumber"/>
+            <class name="com.policy.tests.TC24_TermsAndConditionsValidation"/>
+            <class name="com.policy.tests.TC25_Validquotesubmission"/>
+            <class name="com.policy.tests.TC26_QuoteWorkflowSubmission"/>
         </classes>
     </test>
     <test name="Health Insurance tests edge">
@@ -58,11 +58,11 @@
             <class name="com.policy.tests.TC19_ValidateInvalidMobileAndEmailWarnings"/>
             <class name="com.policy.tests.TC20_ValidateMandatoryFieldTests"/>
             <class name="com.policy.tests.TC21_ValidateSuccessfulFormSubmission"/>
-            <class name="com.policy.basetest.TC22_navigateToBikeTab"/>
-            <class name="com.policy.basetest.TC23_InvalidMobNumber"/>
-            <class name="com.policy.basetest.TC24_TermsAndConditionsValidation"/>
-            <class name="com.policy.basetest.TC25_Validquotesubmission"/>
-            <class name="com.policy.basetest.TC26_QuoteWorkflowSubmission"/>
+            <class name="com.policy.tests.TC22_navigateToBikeTab"/>
+            <class name="com.policy.tests.TC23_InvalidMobNumber"/>
+            <class name="com.policy.tests.TC24_TermsAndConditionsValidation"/>
+            <class name="com.policy.tests.TC25_Validquotesubmission"/>
+            <class name="com.policy.tests.TC26_QuoteWorkflowSubmission"/>
         </classes>
     </test>
 </suite>
