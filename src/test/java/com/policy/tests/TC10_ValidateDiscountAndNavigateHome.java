@@ -37,7 +37,6 @@ public class TC10_ValidateDiscountAndNavigateHome extends BaseTest {
                 "Original ₹" + originalPrice + " > Final ₹" + finalPrice, true);
 
 
-        // ---- Part C: Navigate back to Home ----
         travelPlanPage.clickHomeLogo();
         log.info("Clicked Home logo");
 

@@ -2,6 +2,7 @@ package com.policy.basetest;
 
 import com.policy.pages.*;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -65,13 +66,13 @@ public class BaseTest {
     }
 
     protected void navigateToCuratedPlansPage() {
-        String country     = ConfigReader.getProperty("travel.destination.country");
-        String startDate   = ConfigReader.getProperty("travel.start.date");
-        String endDate     = ConfigReader.getProperty("travel.end.date");
-        String mobile     = ConfigReader.getProperty("travel.mobile.number");
-        String email      = ConfigReader.getProperty("travel.user.email");
-        int traveller1Age  = Integer.parseInt(ConfigReader.getProperty("travel.traveller1.age"));
-        int traveller2Age  = Integer.parseInt(ConfigReader.getProperty("travel.traveller2.age"));
+        String country     = ExcelDataReader.get("Travel", "destination.country");
+        String startDate   = ExcelDataReader.get("Travel", "start.date");
+        String endDate     = ExcelDataReader.get("Travel", "end.date");
+        String mobile      = ExcelDataReader.get("Travel", "mobile.number");
+        String email       = ExcelDataReader.get("Travel", "user.email");
+        int traveller1Age  = ExcelDataReader.getInt("Travel", "traveller1.age");
+        int traveller2Age  = ExcelDataReader.getInt("Travel", "traveller2.age");
 
         travelPage.clickTravelTab();
         travelPage.clickTravelInsurance();

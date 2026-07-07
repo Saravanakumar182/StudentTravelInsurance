@@ -1,6 +1,7 @@
 package com.policy.tests;
 
 import com.policy.basetest.BaseTest;
+import com.policy.utils.ConfigReader;
 import com.policy.utils.LoggerManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -22,9 +23,9 @@ public class TC07_ValidateMedicalCoverPriceUpdate extends BaseTest {
         int initialTotal = travelPlanPage.getTotalPayable();
         log.info("Initial Total payable: ₹{}", initialTotal);
 
-
-        travelPlanPage.changeMedicalCover("$250k");
-        log.info("Changed Medical Cover to $250k");
+        String medicalCover = ConfigReader.getProperty("travelResult.medicalCoverAmount");
+        travelPlanPage.changeMedicalCover(medicalCover);
+        log.info("Changed Medical Cover to "+medicalCover);
 
         int newTotal = travelPlanPage.getTotalPayable();
         log.info("New Total payable: ₹{}", newTotal);
