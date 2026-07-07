@@ -3,6 +3,7 @@ package com.policy.tests;
 import com.policy.basetest.BaseTest;
 import com.policy.pages.TravelInsurancePage;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
 import com.policy.utils.LoggerManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -15,7 +16,7 @@ public class TC02_VerifySchengenCountrySelection extends BaseTest {
     @Test(description = "TC02 - Validate destination dropdown handles valid and invalid countries")
     public void verifySchengenCountrySelection() {
         LoggerManager.logTestStart(this.getClass(), "TC02 - Validate destination dropdown handles valid and invalid countries");
-        String country = ConfigReader.getProperty("travel.destination.country");
+        String country = ExcelDataReader.get("Travel", "destination.country");
         log.info("Testing country: {}", country);
         TravelInsurancePage travelPage = new TravelInsurancePage(getDriver());
         travelPage.clickTravelTab();
