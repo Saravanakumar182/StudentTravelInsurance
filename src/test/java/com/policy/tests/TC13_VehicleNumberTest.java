@@ -4,6 +4,7 @@ import com.policy.pages.CarInsurancePage;
 import com.policy.basetest.BaseTest;
 import com.policy.pages.HomePage;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,7 +22,7 @@ public class TC13_VehicleNumberTest extends BaseTest {
         homepage.clickCarInsuranceDropdown();
 
         // Read vehicle number from config.properties
-        String vehicleNumber = ConfigReader.getProperty("car.vehicleNumber");
+        String vehicleNumber = ExcelDataReader.get("Car", "vehicleNumber");
 
         page.enterVehicleNumber(vehicleNumber);
         System.out.println("✅ Vehicle number entered: " + vehicleNumber);
