@@ -3,6 +3,7 @@ package com.policy.tests;
 import com.policy.basetest.BaseTest;
 import com.policy.pages.BikeInsurancePage;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,7 +18,7 @@ public class TC25_Validquotesubmission extends BaseTest {
         BikeInsurancePage bikePage = new BikeInsurancePage(getDriver());
 
         bikePage.clickBikeTab();
-        bikePage.enterRegistrationNumber(ConfigReader.getProperty("bike.regNumber"));
+        bikePage.enterRegistrationNumber(ExcelDataReader.get("Bike", "regNumber"));
         bikePage.enterMobileNumber(ConfigReader.getProperty("bike.mobile"));
         bikePage.checkTermsAndConditions();
         bikePage.clickGetQuote();

@@ -185,7 +185,7 @@ public class TravelInsurancePlanPage {
 
         safeClick(medicalCoverDropdown);
 
-        By optionLocator = By.xpath("//span[normalize-space(text())='" + value + "']");
+        By optionLocator = By.xpath("//span[contains(text(),'"+value+"')]");
         wait.until(ExpectedConditions.elementToBeClickable(optionLocator)).click();
 
         waitForPriceToStabilize(totalPayable, previousPayable);
