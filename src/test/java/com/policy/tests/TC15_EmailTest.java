@@ -4,6 +4,7 @@ import com.policy.pages.CarInsurancePage;
 import com.policy.basetest.BaseTest;
 import com.policy.pages.HomePage;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,9 +22,9 @@ public class TC15_EmailTest extends BaseTest {
         homepage.clickCarInsuranceDropdown();
 
         // Read test data from config.properties
-        String vehicleNumber = ConfigReader.getProperty("car.vehicleNumber");
-        String mobileNumber  = ConfigReader.getProperty("car.validMobileNumber");
-        String email         = ConfigReader.getProperty("car.email");
+        String vehicleNumber = ExcelDataReader.get("Car", "vehicleNumber");
+        String mobileNumber  = ExcelDataReader.get("Car", "validMobileNumber");
+        String email         = ExcelDataReader.get("Car", "email");
 
         // Fill required fields
         page.enterVehicleNumber(vehicleNumber);
