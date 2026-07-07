@@ -14,4 +14,6 @@ target/
 *.ipr
 .idea
 
+test-output
+
 logs
