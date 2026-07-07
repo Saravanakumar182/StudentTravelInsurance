@@ -3,6 +3,7 @@ package com.policy.tests;
 import com.policy.basetest.BaseTest;
 import com.policy.pages.TravelInsurancePage;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
 import com.policy.utils.LoggerManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -16,9 +17,9 @@ public class TC03_VerifyValidTravelDate extends BaseTest {
     public void verifyValidTravelDate() {
         LoggerManager.logTestStart(this.getClass(), "TC03 - Validate date-picker accepts valid dates and rejects past dates");
 
-        String country = ConfigReader.getProperty("travel.destination.country");
-        String startDate = ConfigReader.getProperty("travel.start.date");
-        String endDate = ConfigReader.getProperty("travel.end.date");
+        String country     = ExcelDataReader.get("Travel", "destination.country");
+        String startDate   = ExcelDataReader.get("Travel", "start.date");
+        String endDate     = ExcelDataReader.get("Travel", "end.date");
         log.info("Test data — Country: {}, Start: {}, End: {}", country, startDate, endDate);
 
         TravelInsurancePage travelPage = new TravelInsurancePage(getDriver());
