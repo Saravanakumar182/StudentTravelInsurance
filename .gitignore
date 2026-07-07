@@ -13,3 +13,7 @@ target/
 *.iml
 *.ipr
 .idea
+
+test-output
+
+logs
