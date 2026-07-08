@@ -23,14 +23,14 @@ public void validateMobileNumber() {
     homepage.clickCarInsuranceDropdown();
 
     // Read test data from config.properties
-    String vehicleNumber = ExcelDataReader.get("Car", "vehicleNumber");
-    String mobileNumber  = ExcelDataReader.get("Car", "mobileNumber");
-    String email         = ExcelDataReader.get("Car", "email");
+    String vehicleNumber = ConfigReader.getProperty("car.vehicleNumber");
+    String mobileNumber  = ConfigReader.getProperty("car.mobileNumber");
+    String email         = ConfigReader.getProperty("car.email");
 
     // Fill required fields
     page.enterVehicleNumber(vehicleNumber);
     page.enterMobileNumber(mobileNumber);
-    page.enterEmail(email);
+//    page.enterEmail(email);
 
     page.clickGetQuote();
 

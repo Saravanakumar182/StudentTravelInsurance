@@ -23,12 +23,10 @@ public class TC16_GetQuoteButtonTest extends BaseTest {
         // Read test data from config.properties
         String vehicleNumber = ExcelDataReader.get("Car", "vehicleNumber");
         String mobileNumber  = ExcelDataReader.get("Car", "validMobileNumber");
-        String email         = ExcelDataReader.get("Car", "email");
 
         // Fill required fields
         page.enterVehicleNumber(vehicleNumber);
         page.enterMobileNumber(mobileNumber);
-        page.enterEmail(email);
 
         // Click Get Quote
         page.clickGetQuote();
