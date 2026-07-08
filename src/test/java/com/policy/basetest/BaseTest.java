@@ -94,6 +94,23 @@ public class BaseTest {
         log.info("=== Landed on curated-plans page (assumed after form submit) ===");
     }
 
+    protected void navigateToCarInsuranceQuotePage() {
+        String vehicleNumber = ExcelDataReader.get("Car", "vehicleNumber");
+        String mobileNumber  = ExcelDataReader.get("Car", "mobileNumber");
+        String validmobileNumber=ExcelDataReader.get("Car","validMobileNumber");
+        String email         = ExcelDataReader.get("Car", "email");
+
+        homePage.clickMotorInsurance();
+        homePage.clickCarInsuranceDropdown();
+
+        carInsurancePage.enterVehicleNumber(vehicleNumber);
+        carInsurancePage.enterMobileNumber(mobileNumber);
+        carInsurancePage.enterMobileNumber(validmobileNumber);
+        carInsurancePage.enterEmail(email);
+        carInsurancePage.clickGetQuote();
+
+        log.info("=== Landed on Car Insurance Quote page (after form submit) ===");
+    }
 
     @AfterMethod
     public void tearDown() {

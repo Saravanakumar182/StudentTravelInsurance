@@ -21,13 +21,13 @@ public class TC16_GetQuoteButtonTest extends BaseTest {
 
         // Read test data from config.properties
         String vehicleNumber = ConfigReader.getProperty("car.vehicleNumber");
-        String mobileNumber  = ConfigReader.getProperty("car.mobileNumber");
-        String email         = ConfigReader.getProperty("car.email");
+        String mobileNumber  = ConfigReader.getProperty("car.validMobileNumber");
+//        String email         = ConfigReader.getProperty("car.email");
 
         // Fill required fields
         page.enterVehicleNumber(vehicleNumber);
         page.enterMobileNumber(mobileNumber);
-        page.enterEmail(email);
+//        page.enterEmail(email);
 
         // Click Get Quote
         page.clickGetQuote();

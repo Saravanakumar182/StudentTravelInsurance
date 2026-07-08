@@ -22,7 +22,7 @@ public class TC13_VehicleNumberTest extends BaseTest {
         homepage.clickCarInsuranceDropdown();
 
         // Read vehicle number from config.properties
-        String vehicleNumber = ExcelDataReader.get("Car", "vehicleNumber");
+        String vehicleNumber = ConfigReader.getProperty("car.vehicleNumber");
 
         page.enterVehicleNumber(vehicleNumber);
         System.out.println("✅ Vehicle number entered: " + vehicleNumber);

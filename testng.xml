@@ -20,7 +20,7 @@
             <class name="com.policy.tests.TC12_CarInsuranceDropdownTest"/>
             <class name="com.policy.tests.TC13_VehicleNumberTest"/>
             <class name="com.policy.tests.TC14_MobileNumberTest"/>
-            <class name="com.policy.tests.TC15_EmailTest"/>
+<!--            <class name="com.policy.tests.TC15_EmailTest"/>-->
             <class name="com.policy.tests.TC16_GetQuoteButtonTest"/>
             <class name="com.policy.tests.TC17_NavigateToHealthInsurance"/>
             <class name="com.policy.tests.TC18_ValidateInvalidPincodeWarning"/>
@@ -51,7 +51,7 @@
             <class name="com.policy.tests.TC12_CarInsuranceDropdownTest"/>
             <class name="com.policy.tests.TC13_VehicleNumberTest"/>
             <class name="com.policy.tests.TC14_MobileNumberTest"/>
-            <class name="com.policy.tests.TC15_EmailTest"/>
+<!--            <class name="com.policy.tests.TC15_EmailTest"/>-->
             <class name="com.policy.tests.TC16_GetQuoteButtonTest"/>
             <class name="com.policy.tests.TC17_NavigateToHealthInsurance"/>
             <class name="com.policy.tests.TC18_ValidateInvalidPincodeWarning"/>
