@@ -15,7 +15,7 @@ public class TC09_ExpandAdditionalBenefits extends BaseTest {
     @Test(description = "TC_9 - Expand Additional Benefits accordion & extract benefits")
     public void expandAdditionalBenefits() {
 
-        navigateToCuratedPlansPage();
+        new CommonCode().navigateToCuratedPlansPage();
 
         travelPlanPage.expandAdditionalBenefits();
         log.info("Expanded Additional Benefits accordion");

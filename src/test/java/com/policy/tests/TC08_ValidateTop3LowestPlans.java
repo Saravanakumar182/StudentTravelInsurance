@@ -16,7 +16,7 @@ public class TC08_ValidateTop3LowestPlans extends BaseTest {
     @Test(description = "TC_8 - Display top 3 lowest plans with provider & amount")
     public void validateTop3LowestPlans() {
 
-        navigateToCuratedPlansPage();
+        new CommonCode().navigateToCuratedPlansPage();
 
         List<Plan> allPlans = travelPlanPage.extractAllCuratedPlans();
         Assert.assertFalse(allPlans.isEmpty(),

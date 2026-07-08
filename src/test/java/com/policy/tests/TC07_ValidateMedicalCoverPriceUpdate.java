@@ -18,7 +18,7 @@ public class TC07_ValidateMedicalCoverPriceUpdate extends BaseTest {
     @Test(description = "TC_7 - Change Medical Cover dropdown updates Total payable")
     public void validateMedicalCoverPriceUpdate() {
 
-        navigateToCuratedPlansPage();
+        new CommonCode().navigateToCuratedPlansPage();
 
         int initialTotal = travelPlanPage.getTotalPayable();
         log.info("Initial Total payable: ₹{}", initialTotal);
