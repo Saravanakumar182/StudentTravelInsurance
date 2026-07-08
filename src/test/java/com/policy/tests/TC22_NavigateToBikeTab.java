@@ -4,7 +4,7 @@ import com.policy.pages.BikeInsurancePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC22_navigateToBikeTab extends BaseTest {
+public class TC22_NavigateToBikeTab extends BaseTest {
 
     @Test
     public void navigateToBikeTab() {

@@ -97,7 +97,7 @@ public class BaseTest {
     protected void navigateToCarInsuranceQuotePage() {
         String vehicleNumber = ExcelDataReader.get("Car", "vehicleNumber");
         String mobileNumber  = ExcelDataReader.get("Car", "mobileNumber");
-        String validmobileNumber=ExcelDataReader.get("Car","validMobileNumber");
+        String validmobileNumber =ExcelDataReader.get("Car","validMobileNumber");
         String email         = ExcelDataReader.get("Car", "email");
 
         homePage.clickMotorInsurance();

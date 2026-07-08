@@ -15,7 +15,6 @@ public class TC04_VerifyContactDetails extends BaseTest {
 
     @Test(description = "TC04 - Validate mobile number and email entry with format validation")
     public void verifyContactDetails() {
-        LoggerManager.logTestStart(this.getClass(), "TC04 - Validate mobile number and email entry with format validation");
         String country     = ExcelDataReader.get("Travel", "destination.country");
         String startDate   = ExcelDataReader.get("Travel", "start.date");
         String endDate     = ExcelDataReader.get("Travel", "end.date");

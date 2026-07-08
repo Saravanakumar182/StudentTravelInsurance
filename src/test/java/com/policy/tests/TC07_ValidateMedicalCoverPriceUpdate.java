@@ -17,7 +17,6 @@ public class TC07_ValidateMedicalCoverPriceUpdate extends BaseTest {
 
     @Test(description = "TC_7 - Change Medical Cover dropdown updates Total payable")
     public void validateMedicalCoverPriceUpdate() {
-        LoggerManager.logTestStart(this.getClass(),"TC_7 - Medical Cover dropdown → price update");
 
         navigateToCuratedPlansPage();
 

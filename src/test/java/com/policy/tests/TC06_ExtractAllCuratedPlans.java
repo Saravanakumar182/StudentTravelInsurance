@@ -15,7 +15,6 @@ public class TC06_ExtractAllCuratedPlans extends BaseTest {
 
     @Test(description = "TC_6 - Extract all curated plans into a List<Plan>")
     public void extractAllCuratedPlans() {
-        LoggerManager.logTestStart(this.getClass(),"TC_6 - Extract all curated plans");
 
         navigateToCuratedPlansPage();
 

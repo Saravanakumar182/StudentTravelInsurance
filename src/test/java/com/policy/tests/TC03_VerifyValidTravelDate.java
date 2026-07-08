@@ -15,7 +15,6 @@ public class TC03_VerifyValidTravelDate extends BaseTest {
 
     @Test(description = "TC03 - Validate date-picker accepts valid dates and rejects past dates")
     public void verifyValidTravelDate() {
-        LoggerManager.logTestStart(this.getClass(), "TC03 - Validate date-picker accepts valid dates and rejects past dates");
 
         String country     = ExcelDataReader.get("Travel", "destination.country");
         String startDate   = ExcelDataReader.get("Travel", "start.date");

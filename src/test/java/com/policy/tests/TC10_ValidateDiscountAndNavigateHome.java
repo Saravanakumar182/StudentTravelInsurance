@@ -13,8 +13,6 @@ public class TC10_ValidateDiscountAndNavigateHome extends BaseTest {
 
     @Test(description = "TC_10 - Validate discount tag, price comparison & navigate back to Home")
     public void validateDiscountAndNavigateHome() {
-        LoggerManager.logTestStart(this.getClass(),
-                "TC_10 - Discount validation + Home navigation");
 
         navigateToCuratedPlansPage();
 
@@ -45,8 +43,7 @@ public class TC10_ValidateDiscountAndNavigateHome extends BaseTest {
                         getDriver().getCurrentUrl().startsWith(ConfigReader.getProperty("app.url")),
                 "User should land back on the Home page");
 
-        LoggerManager.logVerification(this.getClass(),
-                "User successfully navigated back to Home page", true);
+        LoggerManager.logVerification(this.getClass(),"User successfully navigated back to Home page", true);
         LoggerManager.logTestEnd(this.getClass(), "TC_10", "PASSED");
     }
 }

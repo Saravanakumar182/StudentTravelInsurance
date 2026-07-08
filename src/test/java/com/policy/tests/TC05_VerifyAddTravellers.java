@@ -15,7 +15,6 @@ public class TC05_VerifyAddTravellers extends BaseTest {
 
     @Test(description = "TC05 - Add 2 travellers and navigate to plan page")
     public void verifyAddTravellers() {
-        LoggerManager.logTestStart(this.getClass(), "TC05 - Add 2 travellers and navigate to plan page");
         String country     = ExcelDataReader.get("Travel", "destination.country");
         String startDate   = ExcelDataReader.get("Travel", "start.date");
         String endDate     = ExcelDataReader.get("Travel", "end.date");
