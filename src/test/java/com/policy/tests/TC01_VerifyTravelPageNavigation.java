@@ -4,6 +4,7 @@ import com.policy.basetest.BaseTest;
 import com.policy.pages.TravelInsurancePage;
 import com.policy.utils.LoggerManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TC01_VerifyTravelPageNavigation extends BaseTest {
@@ -16,6 +17,12 @@ public class TC01_VerifyTravelPageNavigation extends BaseTest {
         TravelInsurancePage travelPage = new TravelInsurancePage(getDriver());
         travelPage.clickTravelTab();
         travelPage.clickTravelInsurance();
-        log.info("Travel Page Navigation validated successfully");
+        String currentUrl = travelPage.getCurrentUrl();
+        Assert.assertTrue(
+                currentUrl.contains("travel"),
+                "Did not navigate to Travel Insurance page. Current URL: " + currentUrl
+        );
+        log.info("Travel Page Navigation validated successfully. URL: {}", currentUrl);
+
     }
 }

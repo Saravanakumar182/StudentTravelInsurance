@@ -144,12 +144,10 @@ public class TravelInsurancePage {
     }
 
     public String getTravelStartDate() {
-
         return travelStartDateField.getAttribute("value").trim().replace("/", "-");
     }
 
     public String getTravelEndDate() {
-
         return travelEndDateField.getAttribute("value").trim().replace("/", "-");
     }
 
@@ -190,7 +188,6 @@ public class TravelInsurancePage {
         safeClick(continueButton);
         // Switch driver context into results-page iframe
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id("sfFrontendHtml")));
-
     }
 
     // ================= Mobile & Email =================
@@ -209,12 +206,10 @@ public class TravelInsurancePage {
     }
 
     public String getMobileNumberValue() {
-
         return mobileNumberField.getAttribute("value").trim();
     }
 
     public String getEmailValue() {
-
         return emailField.getAttribute("value").trim();
     }
 
