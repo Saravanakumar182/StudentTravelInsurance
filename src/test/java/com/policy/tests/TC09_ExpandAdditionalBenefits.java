@@ -14,8 +14,7 @@ public class TC09_ExpandAdditionalBenefits extends BaseTest {
 
     @Test(description = "TC_9 - Expand Additional Benefits accordion & extract benefits")
     public void expandAdditionalBenefits() {
-        LoggerManager.logTestStart(this.getClass(),
-                "TC_9 - Additional Benefits accordion extraction");
+        LoggerManager.logTestStart(this.getClass(),"TC_9 - Additional Benefits accordion extraction");
 
         navigateToCuratedPlansPage();
 

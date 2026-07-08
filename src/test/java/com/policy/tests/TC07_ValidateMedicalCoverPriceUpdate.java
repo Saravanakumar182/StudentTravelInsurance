@@ -2,6 +2,7 @@ package com.policy.tests;
 
 import com.policy.basetest.BaseTest;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
 import com.policy.utils.LoggerManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -23,7 +24,7 @@ public class TC07_ValidateMedicalCoverPriceUpdate extends BaseTest {
         int initialTotal = travelPlanPage.getTotalPayable();
         log.info("Initial Total payable: ₹{}", initialTotal);
 
-        String medicalCover = ConfigReader.getProperty("travelResult.medicalCoverAmount");
+        String medicalCover = ExcelDataReader.get("Travel", "result.medicalCoverAmount");
         travelPlanPage.changeMedicalCover(medicalCover);
         log.info("Changed Medical Cover to "+medicalCover);
 
