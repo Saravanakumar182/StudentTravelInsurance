@@ -19,7 +19,7 @@ public class TC25_Validquotesubmission extends BaseTest {
 
         bikePage.clickBikeTab();
         bikePage.enterRegistrationNumber(ExcelDataReader.get("Bike", "regNumber"));
-        bikePage.enterMobileNumber(ConfigReader.getProperty("bike.mobile"));
+        bikePage.enterMobileNumber(ExcelDataReader.get("Bike", "mobile"));
         bikePage.checkTermsAndConditions();
         bikePage.clickGetQuote();
 
