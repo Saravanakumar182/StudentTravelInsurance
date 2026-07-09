@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public final class ExcelDataReader {
 
-    private static final String EXCEL_PATH = "src/main/resources/testdata/InsuranceApplication_TestData.xlsx";
+    private static final String EXCEL_PATH = "src/test/resources/testdata/InsuranceApplication_TestData.xlsx";
 
     // Cache: sheetName -> (key -> value)
     private static final Map<String, Map<String, String>> DATA_CACHE = new ConcurrentHashMap<>();

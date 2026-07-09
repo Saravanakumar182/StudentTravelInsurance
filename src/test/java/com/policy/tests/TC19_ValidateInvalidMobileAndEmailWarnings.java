@@ -6,7 +6,6 @@ import com.policy.utils.LoggerManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
