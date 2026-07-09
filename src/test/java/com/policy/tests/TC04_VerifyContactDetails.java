@@ -3,6 +3,7 @@ package com.policy.tests;
 import com.policy.basetest.BaseTest;
 import com.policy.pages.TravelInsurancePage;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
 import com.policy.utils.LoggerManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -14,12 +15,11 @@ public class TC04_VerifyContactDetails extends BaseTest {
 
     @Test(description = "TC04 - Validate mobile number and email entry with format validation")
     public void verifyContactDetails() {
-        LoggerManager.logTestStart(this.getClass(), "TC04 - Validate mobile number and email entry with format validation");
-        String country    = ConfigReader.getProperty("travel.destination.country");
-        String startDate  = ConfigReader.getProperty("travel.start.date");
-        String endDate    = ConfigReader.getProperty("travel.end.date");
-        String mobile     = ConfigReader.getProperty("travel.mobile.number");
-        String email      = ConfigReader.getProperty("travel.user.email");
+        String country     = ExcelDataReader.get("Travel", "destination.country");
+        String startDate   = ExcelDataReader.get("Travel", "start.date");
+        String endDate     = ExcelDataReader.get("Travel", "end.date");
+        String mobile      = ExcelDataReader.get("Travel", "mobile.number");
+        String email       = ExcelDataReader.get("Travel", "user.email");
 
         log.info("Test data — Country: {}, Start: {}, End: {}, Mobile: {}, Email: {}",
                 country, startDate, endDate, mobile, email);

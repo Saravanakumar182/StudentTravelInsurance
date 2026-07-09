@@ -35,6 +35,7 @@ public final class ScreenshotUtil {
             // Return relative path (works when opening HTML report)
             return "screenshots" + File.separator + fileName;
         } catch (Exception e) {
+
             LoggerManager.error(ScreenshotUtil.class, "Screenshot capture failed", e);
             return null;
         }

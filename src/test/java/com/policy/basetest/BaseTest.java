@@ -2,7 +2,6 @@ package com.policy.basetest;
 
 import com.policy.pages.*;
 import com.policy.utils.ConfigReader;
-import com.policy.utils.ExcelDataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -50,11 +49,9 @@ public class BaseTest {
         WebDriver webDriver;
         switch (browser) {
             case "chrome" -> {
-//                ChromeOptions options = new ChromeOptions().addArguments("--headless=new");
                 webDriver = new ChromeDriver();
             }
             case "edge" -> {
-//                EdgeOptions options = new EdgeOptions().addArguments("--headless");
                 webDriver = new EdgeDriver();
             }
             default -> throw new IllegalArgumentException("Unsupported browser: " + browser);
@@ -64,36 +61,6 @@ public class BaseTest {
     public WebDriver getDriver() {
         return driver.get();
     }
-
-    protected void navigateToCuratedPlansPage() {
-        String country     = ExcelDataReader.get("Travel", "destination.country");
-        String startDate   = ExcelDataReader.get("Travel", "start.date");
-        String endDate     = ExcelDataReader.get("Travel", "end.date");
-        String mobile      = ExcelDataReader.get("Travel", "mobile.number");
-        String email       = ExcelDataReader.get("Travel", "user.email");
-        int traveller1Age  = ExcelDataReader.getInt("Travel", "traveller1.age");
-        int traveller2Age  = ExcelDataReader.getInt("Travel", "traveller2.age");
-
-        travelPage.clickTravelTab();
-        travelPage.clickTravelInsurance();
-        travelPage.clickCountryButton();
-        travelPage.enterDestinationCountry(country);
-        travelPage.selectCountryFromDropdown(country);
-        travelPage.enterTravelDates(startDate, endDate);
-        travelPage.clickContinue();
-
-        travelPage.enterMobileNumber(mobile);
-        travelPage.enterEmail(email);
-
-        // Add both travellers
-        travelPage.addTravellerByAge(traveller1Age);
-        travelPage.addTravellerByAge(traveller2Age);
-
-        // Continue to plan page
-        travelPage.clickContinueToPlans();
-        log.info("=== Landed on curated-plans page (assumed after form submit) ===");
-    }
-
 
     @AfterMethod
     public void tearDown() {

@@ -1,5 +1,7 @@
 package com.policy.pages;
 
+import com.policy.utils.LoggerManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +19,7 @@ public class TravelInsurancePage {
 
     WebDriver driver;
     WebDriverWait wait;
+    private static final Logger log = LoggerManager.getLogger(TravelInsurancePage.class);
 
     public TravelInsurancePage(WebDriver driver){
         this.driver = driver;
@@ -236,7 +239,7 @@ public class TravelInsurancePage {
         );
         scrollIntoView(addButton);
         safeClick(addButton);
-        System.out.println("✅ Added traveller of age " + age);
+        log.info("Added traveller of age {}", age);
     }
 
     // ---------- Helper: map exact age → age band index ----------
@@ -255,7 +258,7 @@ public class TravelInsurancePage {
         safeClick(continueToPlansButton);
         // Wait for navigation to plan page
         wait.until(ExpectedConditions.urlContains("plan-page"));
-        System.out.println("✅ Navigated to plan page: " + driver.getCurrentUrl());
+        log.info("Navigated to plan page: {}" , driver.getCurrentUrl());
     }
 
     // ---------- Getter for Assertion ----------

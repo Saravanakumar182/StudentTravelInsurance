@@ -4,11 +4,14 @@ import com.policy.pages.CarInsurancePage;
 import com.policy.basetest.BaseTest;
 import com.policy.pages.HomePage;
 import com.policy.utils.ConfigReader;
+import com.policy.utils.ExcelDataReader;
+import com.policy.utils.LoggerManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class TC16_GetQuoteButtonTest extends BaseTest {
 
-    private ConfigReader config;
+    private static final Logger log = LoggerManager.getLogger(TC16_GetQuoteButtonTest.class);
 
     @Test
     public void verifyGetQuoteButton() {
@@ -20,19 +23,15 @@ public class TC16_GetQuoteButtonTest extends BaseTest {
         homepage.clickCarInsuranceDropdown();
 
         // Read test data from config.properties
-        String vehicleNumber = ConfigReader.getProperty("car.vehicleNumber");
-        String mobileNumber  = ConfigReader.getProperty("car.mobileNumber");
-        String email         = ConfigReader.getProperty("car.email");
+        String vehicleNumber = ExcelDataReader.get("Car", "vehicleNumber");
+        String mobileNumber  = ExcelDataReader.get("Car", "validMobileNumber");
 
         // Fill required fields
         page.enterVehicleNumber(vehicleNumber);
         page.enterMobileNumber(mobileNumber);
-        page.enterEmail(email);
 
         // Click Get Quote
         page.clickGetQuote();
-        System.out.println("✅ Get Quote button clicked");
-
-
+        log.info("Get Quote button clicked");
     }
 }

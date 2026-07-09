@@ -2,6 +2,7 @@ package com.policy.tests;
 
 import com.policy.basetest.BaseTest;
 import com.policy.pages.BikeInsurancePage;
+import com.policy.utils.ExcelDataReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,10 +15,10 @@ public class TC26_QuoteWorkflowSubmission extends BaseTest {
         BikeInsurancePage bikePage = new BikeInsurancePage(getDriver());
         bikePage.clickBikeTab();
         bikePage.clickGotANewVehicle();
-        bikePage.enterMobileNumber(ConfigReader.getProperty("bike.mobile"));
+        bikePage.enterMobileNumber(ExcelDataReader.get("Bike", "mobile"));
         bikePage.checkTermsAndConditions();
         bikePage.clickGetQuote();
-        bikePage.selectCityOfRegistration(ConfigReader.getProperty("bike.city"));
+        bikePage.selectCityOfRegistration(ExcelDataReader.get("Bike", "city"));
         bikePage.clickProceed();
 
 
