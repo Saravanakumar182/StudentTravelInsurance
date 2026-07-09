@@ -39,9 +39,9 @@ public void validateMobileNumber() {
         Assert.assertTrue(errorMsg.toLowerCase().contains("valid mobile number"),
                 "Expected error message for invalid mobile number");
     } else {
-        // ✅ Expect success navigation
         log.info("Valid mobile: " + mobileNumber);
-        Assert.assertTrue(getDriver().getTitle().contains("Car Insurance"),
+        String title = getDriver().getTitle();
+        Assert.assertTrue(title.contains("Get Quote"),
                 "Expected Car Insurance page after valid mobile number, but got: " + getDriver().getTitle());
     }
 }

@@ -14,7 +14,7 @@ public class TC10_ValidateDiscountAndNavigateHome extends BaseTest {
     @Test(description = "TC_10 - Validate discount tag, price comparison & navigate back to Home")
     public void validateDiscountAndNavigateHome() {
 
-        new CommonCode().navigateToCuratedPlansPage();
+        new CommonCode(getDriver()).navigateToCuratedPlansPage();
 
         // ---- Part A: Discount tag ----
         boolean discountVisible = travelPlanPage.isDiscountTagVisible();

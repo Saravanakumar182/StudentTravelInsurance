@@ -16,7 +16,7 @@ public class TC06_ExtractAllCuratedPlans extends BaseTest {
     @Test(description = "TC_6 - Extract all curated plans into a List<Plan>")
     public void extractAllCuratedPlans() {
 
-        new CommonCode().navigateToCuratedPlansPage();
+        new CommonCode(getDriver()).navigateToCuratedPlansPage();
 
         Assert.assertTrue(travelPlanPage.isOnCuratedPlansPage(),
                 "User should be on the curated plans page");
