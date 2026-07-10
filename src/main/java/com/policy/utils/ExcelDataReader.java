@@ -43,6 +43,7 @@ public final class ExcelDataReader {
     }
 
     public static int getInt(String sheetName, String key) {
+
         return Integer.parseInt(get(sheetName, key).trim());
     }
 
@@ -65,10 +66,8 @@ public final class ExcelDataReader {
             if (sheet == null) {
                 throw new RuntimeException("Sheet '" + sheetName + "' not found in Excel file");
             }
-
             DataFormatter formatter = new DataFormatter();  // preserves "01" and dates
             boolean firstRow = true;
-
             for (Row row : sheet) {
                 if (firstRow) { firstRow = false; continue; }   // skip header
                 if (row == null) continue;
